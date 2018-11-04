@@ -1,7 +1,7 @@
 import heapq
 import os
 import ipdb
-import zlib, base64
+
 
 class HeapNode:
 	def __init__(self, char, freq):
