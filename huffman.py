@@ -64,7 +64,7 @@ class HuffmanCoding:
 
 		self.make_codes_helper(root.left, current_code + "0")
 		self.make_codes_helper(root.right, current_code + "1")
-		print(self.codes)
+		#print(self.codes)
 
 
 	def make_codes(self):
@@ -108,10 +108,10 @@ class HuffmanCoding:
 		output_path = filename + ".bin"
 
 		with open(self.path, 'r+') as file, open(output_path, 'wb') as output,open("encode.txt", 'w')as testing:
-                        ipdb.set_trace()
+                        #ipdb.set_trace()
                         text = file.read()
-                        print(text)
-                        print("dffdsf")
+                        #print(text)
+                        #print("dffdsf")
                         text = text.rstrip()
 
                         frequency = self.make_frequency_dict(text)
@@ -121,21 +121,21 @@ class HuffmanCoding:
 
                         encoded_text = self.get_encoded_text(text)
                         padded_encoded_text = self.pad_encoded_text(encoded_text)
-                        ipdb.set_trace()
+                        #ipdb.set_trace()
                         testing.write(encoded_text)
 
                         b = self.get_byte_array(padded_encoded_text)
                         
                         output.write(bytes(b))
 
-		print("Compressed")
+		#print("Compressed")
 		return output_path
 
 
 	""" functions for decompression: """
 
 	def remove_padding(self, padded_encoded_text):
-                ipdb.set_trace()
+                #ipdb.set_trace()
                 padded_info = padded_encoded_text[:8]
                 extra_padding = int(padded_info, 2)
 
@@ -177,8 +177,8 @@ class HuffmanCoding:
 			encoded_text = self.remove_padding(bit_string)
 
 			decompressed_text = self.decode_text(encoded_text)
-			ipdb.set_trace()
+			#ipdb.set_trace()
 			output.write(decompressed_text)
 
-		print("Decompressed")
+		#print("Decompressed")
 		return output_path
